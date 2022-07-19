@@ -1,12 +1,15 @@
 <template>
   <main>
-    <div class="container">
-         <CardSong v-for="(song, index) in songs" :key="index" 
+    <div class="container" v-if="(songs.length == 10)">
+        <CardSong v-for="(song, index) in songs" :key="index" 
             :imageUrl="song.poster"
             :title="song.title"
             :author="song.author"
             :year="song.year"
         />
+    </div>
+    <div v-else>
+        <LoaderComponent />
     </div>
   </main>
 </template>
@@ -14,6 +17,7 @@
 <script>
 import axios from 'axios';
 import CardSong from "./CardSong.vue";
+import LoaderComponent from "./LoaderComponent.vue";
 
 
 export default {
@@ -24,8 +28,9 @@ export default {
         }
     },
 
-    components: { 
-        CardSong 
+    components: {
+    CardSong,
+    LoaderComponent
     },
 
     methods: {
@@ -39,7 +44,7 @@ export default {
     },
 
     created(){
-        this.getSong();
+        setTimeout(() => this.getSong(), 8000);
     }
 }
 </script>

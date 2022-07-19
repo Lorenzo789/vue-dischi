@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
     @import'../styles/variables.scss';
+
     .card{
         background-color: $cardBg;
         width: calc(100% / 5 - 30px);
