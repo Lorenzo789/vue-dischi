@@ -1,7 +1,12 @@
 <template>
   <main>
-    <div>
-        <CardSong />
+    <div class="container">
+         <CardSong v-for="(song, index) in songs" :key="index" 
+            :imageUrl="song.poster"
+            :title="song.title"
+            :author="song.author"
+            :year="song.year"
+        />
     </div>
   </main>
 </template>
@@ -27,7 +32,7 @@ export default {
         getSong(){
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((result) => {
-                this.songs.push(result.data.response);
+                this.songs = result.data.response;
                 console.log(this.songs);
             })
         }
@@ -43,11 +48,16 @@ export default {
     @import'../styles/variables.scss';
 
     main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: $mainBg;
         height: calc(100vh - 70px);
 
-        div{
-            margin: 0 auto;
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             width: 60%;
         }
     }
