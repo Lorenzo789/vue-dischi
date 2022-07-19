@@ -21,32 +21,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
     @import'../styles/variables.scss';
     .card{
         background-color: $cardBg;
         width: calc(100% / 5 - 30px);
-        height: 380px;
+        height: 300px;
         text-align: center;
         margin-bottom: 20px;
         margin-right: 30px;
+        padding: 20px;
 
         h3{
             color: white;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin: 5px 0px;
+            font-weight: bold;
         }
 
         p{
             color: $textColorCard;
         }
-        
-        .image-container{
-            padding: 20px;
-
-            img{
-                object-fit: cover;
-                width: 100%;
-            }
+            
+        img {
+            object-fit: cover;
+            width: 100%;
         }
 
     }
