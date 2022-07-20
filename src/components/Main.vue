@@ -1,5 +1,7 @@
 <template>
   <main>
+    <SelectDisc @search="filterCard"/>
+
     <div class="container" v-if="(songs.length == 10)">
         <CardSong v-for="(song, index) in songs" :key="index" 
             :imageUrl="song.poster"
@@ -19,6 +21,7 @@
 import axios from 'axios';
 import CardSong from "./CardSong.vue";
 import LoaderComponent from "./LoaderComponent.vue";
+import SelectDisc from './SelectDisc.vue';
 
 
 export default {
@@ -26,22 +29,27 @@ export default {
     data: function(){
         return{
             songs: [],
+            filteredCardGenre: [],
         }
     },
 
     components: {
     CardSong,
-    LoaderComponent
-    },
+    LoaderComponent,
+    SelectDisc
+},
 
     methods: {
         getSong(){
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((result) => {
                 this.songs = result.data.response;
-                console.log(result.data.response);
             })
-        }
+        },
+        filterCard(selected){
+            this.filteredCardGenre = [...this.songs].filter( (song) => song.genre.toLowerCase().includes(selected));
+            console.log(this.filteredCardGenre);
+        },
     },
 
     created(){

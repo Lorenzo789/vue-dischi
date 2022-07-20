@@ -1,7 +1,7 @@
 <template>
     <div>
         <select name="genre" id="genre" v-model="selected"
-            @keyup.enter="$emit('search', selected)">
+            @change="$emit('search', selected)">
             <option value="jazz">Jazz</option>
             <option value="pop">Pop</option>
             <option value="metal">Metal</option>
@@ -24,15 +24,20 @@ export default {
 
 <style lang="scss" scoped>
     @import'../styles/variables.scss';
-
-    select{
-        padding: 10px;
-        text-transform: uppercase;
-        font-weight: bold;
-
-        option{
+    div{
+        align-self: baseline;
+        position: relative;
+        top: 10px;
+        left: 600px;
+        select{
+            padding: 10px;
             text-transform: uppercase;
             font-weight: bold;
+
+            option{
+                text-transform: uppercase;
+                font-weight: bold;
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @search="filterCard"/>
+    <Header />
     <Main />
   </div>
 </template>
@@ -14,11 +14,6 @@ export default {
   components: {
     Header,
     Main
-  },
-  methods: {
-    filterCard(selectGenre){
-      console.log('hai selezionato');
-    }
   }
 }
 </script>
