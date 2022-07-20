@@ -6,6 +6,7 @@
             :title="song.title"
             :author="song.author"
             :year="song.year"
+            :genre="song.genre"
         />
     </div>
     <div v-else>
@@ -38,13 +39,13 @@ export default {
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((result) => {
                 this.songs = result.data.response;
-                console.log(this.songs);
+                console.log(result.data.response);
             })
         }
     },
 
     created(){
-        setTimeout(() => this.getSong(), 8000);
+        setTimeout(() => this.getSong(), 500);
     }
 }
 </script>

@@ -6,6 +6,7 @@
         <h3>{{ title }}</h3>
         <p>{{ author }}</p>
         <p>{{ year }}</p>
+        <p>{{ genre }}</p>
     </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
         title: String,
         author: String,
         year: String,
+        genre: String,
     }
 }
 </script>
@@ -26,7 +28,7 @@ export default {
     .card{
         background-color: $cardBg;
         width: calc(100% / 5 - 30px);
-        height: 300px;
+        height: 320px;
         text-align: center;
         margin-bottom: 20px;
         margin-right: 30px;
