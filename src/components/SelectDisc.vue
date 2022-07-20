@@ -28,7 +28,15 @@ export default {
         align-self: baseline;
         position: relative;
         top: 10px;
-        left: 600px;
+        left: 610px;
+
+        label{
+            text-transform: uppercase;
+            color: white;
+            font-weight: bold;
+            padding-right: 10px
+        }
+
         select{
             padding: 10px;
             text-transform: uppercase;
