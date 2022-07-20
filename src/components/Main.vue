@@ -3,7 +3,7 @@
     <SelectDisc @search="filterCard"/>
 
     <div class="container" v-if="(songs.length == 10)">
-        <CardSong v-for="(song, index) in songs" :key="index" 
+        <CardSong v-for="(song, index) in filteredCardGenre" :key="index" 
             :imageUrl="song.poster"
             :title="song.title"
             :author="song.author"
@@ -44,11 +44,16 @@ export default {
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((result) => {
                 this.songs = result.data.response;
+                this.filteredCardGenre = this.songs;
             })
         },
         filterCard(selected){
             this.filteredCardGenre = [...this.songs].filter( (song) => song.genre.toLowerCase().includes(selected));
             console.log(this.filteredCardGenre);
+            
+            if (selected == 'all') {
+                this.filteredCardGenre = this.songs;
+            }
         },
     },
 
